@@ -1,0 +1,15 @@
+dataset:
+    path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_lct_test.json
+    name: lct_gsd
+    representation_type: lct
+
+models:
+  - original_model_id: /models/RuadaptQwen3-4B-Hybrid
+    peft_group:
+      - /syntax_finetuning_adapters/RuadaptQwen3_4B_Hybrid_syntagrus_lct_seed10_ep2
+      - /syntax_finetuning_adapters/RuadaptQwen3_4B_Hybrid_syntagrus_lct_seed200_ep2
+      - /syntax_finetuning_adapters/RuadaptQwen3_4B_Hybrid_syntagrus_lct_seed3000_ep2
+    is_instruct: False
+    model_library: vllm
+    max_tokens: 1500
+output_dir: /syntax_finetuning_pred_results
