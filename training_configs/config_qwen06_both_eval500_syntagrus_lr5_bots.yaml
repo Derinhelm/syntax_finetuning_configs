@@ -1,0 +1,28 @@
+batch_size: 16
+micro_batch_size: 4
+dataset_config:
+- dev_file_path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_grct_dev.json
+  train_file_path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_grct_train.json
+  treebank: syntagrus_grct
+- dev_file_path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_lct_dev.json
+  train_file_path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_lct_train.json
+  treebank: syntagrus_lct
+epochs: 3
+model_config:
+  - is_instruct: true
+    model_name: /models/Qwen3-0.6B
+    per_device_eval_batch_size: 2
+    torch_empty_cache_steps: True
+  - is_instruct: false
+    model_name: /models/Qwen3-0.6B-Base
+    per_device_eval_batch_size: 2
+    torch_empty_cache_steps: True
+root_output_dir_path: /adapters/syntagrus_qwen06_both_3000
+eval_steps: 500
+cutoff_len: 1500
+init_lora_weights: loftq
+save_epoch_adapters: True
+learning_rate:
+  - 0.00001
+seed:
+- 3000
