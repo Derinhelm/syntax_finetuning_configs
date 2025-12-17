@@ -1,0 +1,19 @@
+dataset:
+    path: /syntax_finetuning/src/data/dataset_simple_rel/syntagrus/ru_simple_syntagrus_lct_test.json
+    name: lct_syntagrus
+    representation_type: lct
+
+models:
+  - original_model_id: /models/Qwen3-0.6B-Base
+    peft_group:
+      - /syntax_finetuning_adapters/Qwen3_0_6B_Base_syntagrus_lct_seed3000_ep2
+    is_instruct: False
+    model_library: vllm
+    max_tokens: 1500
+  - original_model_id: /models/Qwen3-0.6B
+    peft_group:
+      - /syntax_finetuning_adapters/Qwen3_0_6B_syntagrus_lct_seed3000_ep2   
+    is_instruct: True
+    model_library: vllm
+    max_tokens: 1500
+output_dir: /syntax_finetuning_pred_results
