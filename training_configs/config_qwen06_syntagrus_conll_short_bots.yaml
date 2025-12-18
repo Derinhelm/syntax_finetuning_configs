@@ -14,7 +14,7 @@ model_config:
     model_name: /models/Qwen3-0.6B
     per_device_eval_batch_size: 2
     torch_empty_cache_steps: True
-root_output_dir_path: /adapters/syntagrus_expir_conll_short_500
+root_output_dir_path: /adapters/syntagrus_expir_qwen06_conll_short_500
 eval_steps: 500
 cutoff_len: 1500
 learning_rate:
